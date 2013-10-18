@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ED7EFCC8-CC95-4275-84A7-0FEF82C8FABA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DDDSkeletonNET.Portal.ApplicationServices</RootNamespace>
+    <AssemblyName>DDDSkeletonNET.Portal.ApplicationServices</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Exceptions\ResourceNotFoundException.cs" />
+    <Compile Include="Implementations\CustomerService.cs" />
+    <Compile Include="Interfaces\ICustomerService.cs" />
+    <Compile Include="Messaging\Customers\CustomerPropertiesViewModel.cs" />
+    <Compile Include="Messaging\Customers\DeleteCustomerRequest.cs" />
+    <Compile Include="Messaging\Customers\DeleteCustomerResponse.cs" />
+    <Compile Include="Messaging\Customers\GetCustomerRequest.cs" />
+    <Compile Include="Messaging\Customers\GetCustomerResponse.cs" />
+    <Compile Include="Messaging\Customers\GetCustomersResponse.cs" />
+    <Compile Include="Messaging\Customers\InsertCustomerRequest.cs" />
+    <Compile Include="Messaging\Customers\InsertCustomerResponse.cs" />
+    <Compile Include="Messaging\Customers\UpdateCustomerRequest.cs" />
+    <Compile Include="Messaging\Customers\UpdateCustomerResponse.cs" />
+    <Compile Include="Messaging\IntegerIdRequest.cs" />
+    <Compile Include="Messaging\ServiceRequestBase.cs" />
+    <Compile Include="Messaging\ServiceResponseBase.cs" />
+    <Compile Include="ModelConversions\ConversionHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CustomerViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DDDSkeletonNET.Infrastructure.Common\DDDSkeletonNET.Infrastructure.Common.csproj">
+      <Project>{1d8e9379-965a-4524-8a1e-288e778d40d9}</Project>
+      <Name>DDDSkeletonNET.Infrastructure.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DDDSkeletonNET.Portal.Domain\DDDSkeletonNET.Portal.Domain.csproj">
+      <Project>{33248b93-dfe6-4773-8300-8d96d533c010}</Project>
+      <Name>DDDSkeletonNET.Portal.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>StructureMap.MVC4</id>
+    <version>2.6.4.3</version>
+    <title>StructureMap.MVC4</title>
+    <authors>Web Advanced</authors>
+    <owners>Web Advanced</owners>
+    <licenseUrl>https://github.com/webadvanced/Structuremap.MVC4/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/webadvanced/Structuremap.MVC4</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Adds the latest version of structuremap and configures it as the default Dependency Resolver. Works with 'Controllers' and 'ApiControllers'.</description>
+    <summary>An MVC4 IDependencyResolver wrapper for Structuremap 2.x</summary>
+    <releaseNotes />
+    <copyright />
+    <language>en-US</language>
+    <dependencies>
+      <dependency id="WebActivator" version="1.5.1" />
+      <dependency id="CommonServiceLocator" version="1.0" />
+      <dependency id="structuremap" version="2.6.4.1" />
+      <dependency id="Microsoft.AspNet.WebApi" version="4.0.20710.0" />
+    </dependencies>
+  </metadata>
+</package>
