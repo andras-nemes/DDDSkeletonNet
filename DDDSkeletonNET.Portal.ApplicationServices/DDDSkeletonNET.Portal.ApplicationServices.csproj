@@ -41,7 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\ResourceNotFoundException.cs" />
+    <Compile Include="Implementations\ApplicationServiceBase.cs" />
+    <Compile Include="Implementations\CountrySpecificCustomerService.cs" />
     <Compile Include="Implementations\CustomerService.cs" />
+    <Compile Include="Implementations\EnrichedCustomerService.cs" />
+    <Compile Include="Interfaces\ICountrySpecificCustomerService.cs" />
     <Compile Include="Interfaces\ICustomerService.cs" />
     <Compile Include="Messaging\Customers\CustomerPropertiesViewModel.cs" />
     <Compile Include="Messaging\Customers\DeleteCustomerRequest.cs" />
@@ -53,6 +57,9 @@
     <Compile Include="Messaging\Customers\InsertCustomerResponse.cs" />
     <Compile Include="Messaging\Customers\UpdateCustomerRequest.cs" />
     <Compile Include="Messaging\Customers\UpdateCustomerResponse.cs" />
+    <Compile Include="Messaging\EnhancedCustomers\CountrySpecificCustomerViewModel.cs" />
+    <Compile Include="Messaging\EnhancedCustomers\InsertCountrySpecificCustomerRequest.cs" />
+    <Compile Include="Messaging\EnhancedCustomers\InsertCountrySpecificCustomerResponse.cs" />
     <Compile Include="Messaging\IntegerIdRequest.cs" />
     <Compile Include="Messaging\ServiceRequestBase.cs" />
     <Compile Include="Messaging\ServiceResponseBase.cs" />

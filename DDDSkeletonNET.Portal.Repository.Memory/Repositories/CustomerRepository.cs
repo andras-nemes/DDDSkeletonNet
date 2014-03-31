@@ -11,7 +11,8 @@ namespace DDDSkeletonNET.Portal.Repository.Memory.Repositories
 {
 	public class CustomerRepository : Repository<Customer, int, DatabaseCustomer>, ICustomerRepository
 	{
-		public CustomerRepository(IUnitOfWork unitOfWork, IObjectContextFactory objectContextFactory) : base(unitOfWork, objectContextFactory)
+		public CustomerRepository(IUnitOfWork unitOfWork, IObjectContextFactory objectContextFactory) 
+			: base(unitOfWork, objectContextFactory)
 		{}
 
 		public override Customer FindBy(int id)

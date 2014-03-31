@@ -12,17 +12,15 @@ using DDDSkeletonNET.Portal.Domain.ValueObjects;
 
 namespace DDDSkeletonNET.Portal.ApplicationServices.Implementations
 {
-	public class CustomerService : ICustomerService
+	public class CustomerService : ApplicationServiceBase, ICustomerService
 	{
 		private readonly ICustomerRepository _customerRepository;
-		private readonly IUnitOfWork _unitOfWork;
 
 		public CustomerService(ICustomerRepository customerRepository, IUnitOfWork unitOfWork)
+			: base(unitOfWork)
 		{
 			if (customerRepository == null) throw new ArgumentNullException("Customer repo");
-			if (unitOfWork == null) throw new ArgumentNullException("Unit of work");
 			_customerRepository = customerRepository;
-			_unitOfWork = unitOfWork;
 		}
 
 		public GetCustomerResponse GetCustomer(GetCustomerRequest getCustomerRequest)
@@ -72,7 +70,7 @@ namespace DDDSkeletonNET.Portal.ApplicationServices.Implementations
 			try
 			{
 				_customerRepository.Insert(newCustomer);				
-				_unitOfWork.Commit();
+				UnitOfWork.Commit();
 				return new InsertCustomerResponse();
 			}
 			catch (Exception ex)
@@ -93,7 +91,7 @@ namespace DDDSkeletonNET.Portal.ApplicationServices.Implementations
 					existingCustomer.Name = assignableProperties.Name;
 					ThrowExceptionIfCustomerIsInvalid(existingCustomer);
 					_customerRepository.Update(existingCustomer);
-					_unitOfWork.Commit();
+					UnitOfWork.Commit();
 					return new UpdateCustomerResponse();
 				}
 				else
@@ -115,7 +113,7 @@ namespace DDDSkeletonNET.Portal.ApplicationServices.Implementations
 				if (customer != null)
 				{
 					_customerRepository.Delete(customer);
-					_unitOfWork.Commit();
+					UnitOfWork.Commit();
 					return new DeleteCustomerResponse();
 				}
 				else

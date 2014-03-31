@@ -18,7 +18,7 @@ namespace DDDSkeletonNET.Portal.Domain.Customer
 			{
 				AddBrokenRule(CustomerBusinessRule.CustomerNameRequired);
 			}
-			CustomerAddress.ThrowExceptionIfInvalid();
+			CustomerAddress.ThrowExceptionIfInvalid();			
 		}
 	}
 }

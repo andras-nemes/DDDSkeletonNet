@@ -33,6 +33,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,12 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\DatabaseCountrySpecificCustomer.cs" />
     <Compile Include="Database\DatabaseCustomer.cs" />
     <Compile Include="Database\InMemoryDatabaseObjectContext.cs" />
     <Compile Include="Database\IObjectContextFactory.cs" />
     <Compile Include="Database\LazySingletonObjectContextFactory.cs" />
+    <Compile Include="DataContextFactoryOrm\HttpAwareOrmDataContextFactory.cs" />
     <Compile Include="InMemoryUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CountrySpecificCustomerRepository.cs" />
     <Compile Include="Repositories\CustomerRepository.cs" />
     <Compile Include="Repository.cs" />
   </ItemGroup>

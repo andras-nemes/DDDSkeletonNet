@@ -39,11 +39,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CountryRules\CountrySpecificCustomerRule.cs" />
+    <Compile Include="CountryRules\CountrySpecificCustomerRuleFactory.cs" />
+    <Compile Include="CountryRules\GermanCustomerRule.cs" />
+    <Compile Include="CountryRules\HungarianCustomerRule.cs" />
+    <Compile Include="CountryRules\SwedishCustomerRule.cs" />
+    <Compile Include="Customer\CountrySpecificCustomer.cs" />
     <Compile Include="Customer\Customer.cs" />
     <Compile Include="Customer\CustomerBusinessRule.cs" />
+    <Compile Include="Customer\ICountrySpecificCustomerRepository.cs" />
     <Compile Include="Customer\ICustomerRepository.cs" />
+    <Compile Include="Factories\CountryFactory.cs" />
+    <Compile Include="Factories\ICountryFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueObjects\Address.cs" />
+    <Compile Include="ValueObjects\CountryCodes.cs" />
+    <Compile Include="ValueObjects\Sweden.cs" />
+    <Compile Include="ValueObjects\Country.cs" />
+    <Compile Include="ValueObjects\Germany.cs" />
+    <Compile Include="ValueObjects\Hungary.cs" />
     <Compile Include="ValueObjects\ValueObjectBusinessRule.cs" />
   </ItemGroup>
   <ItemGroup>

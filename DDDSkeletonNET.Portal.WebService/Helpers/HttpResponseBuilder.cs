@@ -29,7 +29,7 @@ namespace DDDSkeletonNET.Portal
 			{
 				statusCode = baseResponse.Exception.ConvertToHttpStatusCode();
 				HttpResponseMessage message = new HttpResponseMessage(statusCode);
-				message.Content = new StringContent(baseResponse.Exception.Message);
+				message.Content = new StringContent(baseResponse.Exception.Message);				
 				throw new HttpResponseException(message);
 			}
 			return requestMessage.CreateResponse<ServiceResponseBase>(statusCode, baseResponse);

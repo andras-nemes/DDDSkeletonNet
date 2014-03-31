@@ -24,6 +24,10 @@ using DDDSkeletonNET.Infrastructure.Common.Domain;
 using DDDSkeletonNET.Infrastructure.Common.UnitOfWork;
 using DDDSkeletonNET.Portal.Repository.Memory;
 using DDDSkeletonNET.Portal.Repository.Memory.Database;
+using DDDSkeletonNET.Infrastructure.Common.Caching;
+using DDDSkeletonNET.Portal.ApplicationServices.Implementations;
+using DDDSkeletonNET.Infrastructure.Common.Configuration;
+using DDDSkeletonNET.Portal.Repository.Memory.DataContextFactoryOrm;
 namespace DDDSkeletonNET.Portal.WebService.DependencyResolution
 {
 	public static class IoC
@@ -41,8 +45,13 @@ namespace DDDSkeletonNET.Portal.WebService.DependencyResolution
 										scan.AssemblyContainingType<BusinessRule>();
 										scan.WithDefaultConventions();
 									});
-							x.For<IUnitOfWork>().Use<InMemoryUnitOfWork>();
-							x.For<IObjectContextFactory>().Use<LazySingletonObjectContextFactory>();
+							//x.For<IObjectContextFactory>().Use<LazySingletonObjectContextFactory>();
+							x.For<IObjectContextFactory>().Use<HttpAwareOrmDataContextFactory>();							
+							x.For<IUnitOfWork>().Use<InMemoryUnitOfWork>();							
+							x.For<ICacheStorage>().Use<SystemRuntimeCacheStorage>();
+							var customerService = x.For<ICustomerService>().Use<CustomerService>();
+							x.For<ICustomerService>().Use<EnrichedCustomerService>().Ctor<ICustomerService>().Is(customerService);
+							x.For<IConfigurationRepository>().Use<AppSettingsConfigurationRepository>();
 						});
 			ObjectFactory.AssertConfigurationIsValid();
 			return ObjectFactory.Container;
